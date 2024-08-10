@@ -1,66 +1,93 @@
-.cell {
-    width: 100px;
-    height: 100px;
+/* .cell {
+    flex: 1 1 0px !important;
     border-left: 1px solid #555;
     border-top: 1px solid #555;
     float: left;
     background-color: #000;
     font-size: 0.7em;
     text-align: center;
+} */
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 100%;
+    font-weight: bold;
+    border: var(--border-color) solid 0.5px;
+    width: 39px;
+    height: 39px;
+    text-align: center;
+    line-height: 39px;
 }
+
+
 
 .row {
     clear: both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .symbol_0 {
     background-color: #000;
 }
 .symbol_1 {
-    background-color: #0074D9; /* blue */
+    background-color: #0074d9; /* blue */
 }
 .symbol_2 {
-    background-color: #FF4136; /* red */
+    background-color: #ff4136; /* red */
 }
 .symbol_3 {
-    background-color: #2ECC40; /* green */
+    background-color: #2ecc40; /* green */
 }
 .symbol_4 {
-    background-color: #FFDC00; /* yellow */
+    background-color: #ffdc00; /* yellow */
 }
 .symbol_5 {
-    background-color: #AAAAAA; /* grey */
+    background-color: #aaaaaa; /* grey */
 }
 .symbol_6 {
-    background-color: #F012BE; /* fuschia */
+    background-color: #f012be; /* fuschia */
 }
 .symbol_7 {
-    background-color: #FF851B; /* orange */
+    background-color: #ff851b; /* orange */
 }
 .symbol_8 {
-    background-color: #7FDBFF; /* teal */
+    background-color: #7fdbff; /* teal */
 }
 .symbol_9 {
-    background-color: #870C25; /* brown */
+    background-color: #870c25; /* brown */
 }
-
 
 /*Symbol picker*/
 
 .symbol_preview {
-    width: 20px;
-    height: 20px;
-    float: left;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    border: 3px solid rgba(255, 255, 255, 0.33);
+    border-radius: 0.5rem;
 }
 
 .grid_size_field {
     width: 50px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    min-height: 35px;
 }
 
 .selected-symbol-preview {
-    border: 2px solid orange;
+    border: 3px solid orange;
 }
-
 
 /*Selectable*/
 
@@ -76,18 +103,32 @@
 /*Message display*/
 
 #error_display {
-    color: red;
-    width: 100%;
+    color: var(--text-color);
+    background: #e02525;
+    padding: 1rem;
+    width: fit-content;
     float: left;
-    font-size: 14px;
+    font-size: 24px;
     margin: 20px;
+    border-radius: 1rem;
+    border: #870c25 solid 2px;
+
+    /* For testing */
+    /* display: block !important; */
 }
 
 #info_display {
-    color: green;
-    width: 100%;
+    color: var(--text-color);
+    background: #3be025;
+    padding: 1rem;
+    width: fit-content;
     float: left;
-    font-size: 14px;
+    font-size: 24px;
     margin: 20px;
+    border-radius: 1rem;
+    border: #58870c solid 2px;
+
+    /* For testing */
+    /* display: block !important; */
 }
 

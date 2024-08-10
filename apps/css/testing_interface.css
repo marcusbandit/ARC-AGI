@@ -1,29 +1,34 @@
+:root {
+    --element-color: #2424246f;
+    --header-color: #8282824d;
+    --border-color: #595959cc;
+    --text-color: azure;
+}
+
 body {
-    font-family: 'Open Sans', sans-serif;
-    min-width: 1410px;
+    font-family: "Open Sans", sans-serif;
+    /* min-width: 1410px; */
+    background: linear-gradient(to bottom right, #030339, #270332);
+    background-attachment: fixed;
 }
 
 #workspace {
-    width: 1410px;
+    width: fit-content;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
-#demonstration_examples_view {
-    float: left;
-    width: 450px;
-    margin: 10px;
-    margin-right: 5px;
-    background-color: #d5d5d5;
-}
-
 #evaluation_view {
     float: left;
-    width: 930px;
+    min-width: 930px;
     margin: 10px;
     margin-left: 5px;
-    background-color: #d5d5d5;
+    background-color: var(--element-color);
     min-height: 850px;
+    border-radius: 1rem;
+    border: var(--border-color) solid 1px;
+    backdrop-filter: blur(5px);
 }
 
 #evaluation-input-view {
@@ -40,73 +45,91 @@ body {
 
 #load_task_control_btns {
     float: left;
+    display: flex;
+    flex-direction: column;
     margin-top: 10px;
     margin-bottom: 0;
-    background: white;
+    background: var(--header-color);
     width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
+    border-radius: 1rem;
+    color: var(--text-color);
+    backdrop-filter: blur(5px);
+    border: var(--border-color) solid 1px;
 }
 
 #editor_grid_control_btns {
     float: left;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background: white;
-    width: 100%;
+    background: var(--header-color);
     padding-top: 5px;
     padding-bottom: 5px;
+    border-radius: 1rem;
+    color: var(--text-color);
+    backdrop-filter: blur(5px);
+    border: var(--border-color) solid 1px;
 }
 
 #resize_control_btns {
     width: 100%;
-    float:left;
+    float: left;
     margin-bottom: 10px;
 }
 
 #submit_solution_btn {
-    color: white;
-    border-radius: 4px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    background: rgb(28, 184, 65);
+    font-size: large;
+    color: var(--text-color);
+    background: rgb(8, 170, 46);
+    width: 100%;
+}
+#submit_solution_btn:hover {
+    background: rgb(10, 144, 10);
 }
 
 #submit_solution_btn:active {
-  background: blue;
+    background: rgb(4, 101, 4);
 }
 
-button:focus {outline:0;}
-
-#output_grid {
-
+button:focus {
+    outline: 0;
 }
 
-#toolbar {
-    float: left;
-    margin-left: 10px;
-    margin-top: 18px;
+#user_grid_control_btns {
+    margin-top: 30px;
     margin-bottom: 10px;
-    width: 100%;
-
+    float: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background: var(--element-color);
+    border: var(--border-color) solid 1px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 1rem;
 }
 
 #symbol_picker {
-    float: left;
-    margin-left: 20px;
-    width: 100%;
-}
-
-.symbol_preview {
-    width: 25px;
-    height: 25px;
-    float: left;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 label {
-    margin-left: 10px;
-}
-
-input, button {
     margin-left: 10px;
 }
 
@@ -114,35 +137,143 @@ input, button {
     margin-left: 0;
 }
 
+/* buttons */
+button, input[type="button"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30%;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 0.5rem;
+    background-color: #ccc;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-grow: 1;
+    border: none;
+}
+
+button:hover, input[type="button"]:hover {
+    background-color: #aaa;
+}
+
 /*Task demonstration*/
 
+#demonstration_examples_view {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    min-width: fit-content;
+    min-height: fit-content;
+    margin: 10px;
+    background-color: var(--element-color);
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-color) solid 1px;
+}
+
+#task_preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: fit-content;
+    width: 90%;
+    gap: 30px;
+}
+
+.label_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-wrapper {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background-color: grey;
+    border-radius: 12px;
+    transition: background-color 0.2s;
+}
+
+.checkbox-wrapper:has(#show_symbol_numbers:checked) {
+    background: linear-gradient(to bottom right, #1176f3 0%, #ba0cce 100%);
+}
+
+#show_symbol_numbers {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    margin: 0;
+}
+
+#show_symbol_numbers:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.466);
+    transition: transform 0.2s;
+    border: #e7e7e7 2px solid;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#show_symbol_numbers:checked:before {
+    transform: translateX(26px);
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+
 .pair_preview {
-    height: 200px;
-    padding: 5px;
-    border-bottom: solid 1px #a1a1a1;
+    display: flex;
+    height: auto;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
+
 .input_preview {
-    height: 200px;
-    width: 200px;
-    float: left;
+    height: auto;
+    width: auto;
+    min-height: 0;
 }
+
 .output_preview {
-    height: 200px;
-    width: 200px;
-    float: left;
-    margin-left: 35px;
+    height: auto;
+    width: auto;
+    min-height: 0;
 }
 
 .text {
     text-align: center;
-    background: white;
+    background: var(--header-color);
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 10px;
+    border-radius: 1rem;
+    color: var(--text-color);
+    backdrop-filter: blur(5px);
+    border: var(--border-color) solid 1px;
 }
 
 #task_demo_header {
     margin: 10px;
+    width: 90%;
+    border-radius: 1rem;
 }
 
 #modal_bg {
@@ -153,6 +284,7 @@ input, button {
     top: 0;
     left: 0;
     overflow: hidden;
+    z-index: 9999;
 }
 
 #modal {
@@ -166,4 +298,45 @@ input, button {
 
 #modal input {
     margin-left: 70px;
+}
+
+/* Basic reset for radio buttons */
+.tool-buttons input[type="radio"] {
+    display: none;
+}
+
+/* Styling the labels to look like buttons */
+.tool-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #ccc;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Add some spacing between the icon and text */
+.tool-button i {
+    margin-right: 8px;
+}
+
+/* Change background color when the radio button is checked */
+.tool-buttons input[type="radio"]:checked + .tool-button {
+    background-color: #2196f3;
+    color: white;
+}
+
+/* Additional hover effect */
+.tool-button:hover {
+    background-color: #bbb;
+}
+
+/* Change icon color when the button is selected */
+.tool-buttons input[type="radio"]:checked + .tool-button i {
+    color: white;
 }
